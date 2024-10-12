@@ -3,27 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Sudoer404</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sudoer 404 - Stella Mary's College of Engineering</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .team-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+        .team-member p {
+            margin: 0;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #007bff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .team-section {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <h1>Welcome to Sudoer404</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Sudoer 404</h1>
+        <p>From Stella Mary's College of Engineering - Team Leader: Haleel</p>
     </header>
-    <main>
-        <h2>Our Mission</h2>
-        <p>We are a dedicated team focused on innovation and problem-solving.</p>
-    </main>
+
+    <section class="team-section">
+        <!-- Team Member Card 1 -->
+        <div class="team-member">
+            <img src="https://via.placeholder.com/120" alt="Lethin" class="profile-img">
+            <h3>Lethin</h3>
+            <p>Web Developer</p>
+        </div>
+
+        <!-- Team Member Card 2 -->
+        <div class="team-member">
+            <img src="https://via.placeholder.com/120" alt="Haleel" class="profile-img">
+            <h3>Haleel</h3>
+            <p>Team Leader - Network/Edge/AI Specialist</p>
+        </div>
+
+        <!-- Team Member Card 3 -->
+        <div class="team-member">
+            <img src="https://via.placeholder.com/120" alt="Anjai" class="profile-img">
+            <h3>Anjai</h3>
+            <p>Network Architect</p>
+        </div>
+
+        <!-- Team Member Card 4 -->
+        <div class="team-member">
+            <img src="https://via.placeholder.com/120" alt="Sriharshini" class="profile-img">
+            <h3>Sriharshini</h3>
+            <p>Cloud Computing Expert</p>
+        </div>
+
+        <!-- Team Member Card 5 -->
+        <div class="team-member">
+            <img src="https://via.placeholder.com/120" alt="Ajisha" class="profile-img">
+            <h3>Ajisha</h3>
+            <p>Cloud Computing Expert</p>
+        </div>
+
+        <!-- Team Member Card 6 -->
+        <div class="team-member">
+            <img src="https://via.placeholder.com/120" alt="Shaniya" class="profile-img">
+            <h3>Shaniya</h3>
+            <p>Cloud Computing Expert</p>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Sudoer404 Team</p>
+        <p>&copy; 2024 Sudoer 404 - Stella Mary's College of Engineering</p>
     </footer>
+
 </body>
 </html>
-
