@@ -3,176 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoer 404 - Stella Mary's College of Engineering</title>
+    <title>Course Domain Selector</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-        
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(135deg, #007bff, #00c6ff);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            margin: 10px 0;
-            font-size: 1.2rem;
-        }
-
-        .team-section {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            padding: 20px;
-            background-color: #fff;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        .team-member {
-            background-color: white;
+        .container {
+            background: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            margin: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            max-width: 600px;
+            width: 100%;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .team-member h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-            color: #007bff;
-        }
-        .team-member p {
-            margin: 0;
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 4px solid #007bff;
-        }
-
-        .contact-section {
-            background-color: #007bff;
-            padding: 40px;
-            text-align: center;
-            color: white;
-        }
-        .contact-section h2 {
-            font-size: 2rem;
+        h1 {
+            color: #444;
             margin-bottom: 20px;
         }
-        .contact-section a {
-            color: white;
-            text-decoration: none;
-            background-color: #00c6ff;
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
             padding: 10px 20px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .contact-section a:hover {
-            background-color: #007bff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #007bff;
-            color: white;
-            font-size: 0.9rem;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        @media screen and (max-width: 768px) {
-            .team-section {
-                flex-direction: column;
-                align-items: center;
-            }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Select Your Course</h1>
+        <form id="courseForm">
+            <label for="course">Choose your course:</label>
+            <select id="course" name="course">
+                <option value="" disabled selected>Select a course</option>
+                <option value="cse">Computer Science and Engineering (B.E)</option>
+                <option value="ece">Electronics and Communication Engineering (B.E)</option>
+                <option value="eee">Electrical and Electronics Engineering (B.E)</option>
+                <option value="ai">Artificial Intelligence and Data Science (B.Tech)</option>
+                <option value="mech">Mechanical Engineering (B.E)</option>
+                <option value="civil">Civil Engineering (B.E)</option>
+            </select>
+            <button type="button" onclick="showDomains()">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
 
-    <header>
-        <h1>Sudoer 404</h1>
-        <p>From Stella Mary's College of Engineering - Team Leader: Haleel</p>
-    </header>
+    <script>
+        function showDomains() {
+            const course = document.getElementById('course').value;
+            const result = document.getElementById('result');
+            let domains = '';
 
-    <section class="team-section">
-        <!-- Team Member Card 1 -->
-        <a href="mailto:lethin.cs23@stellamaryscoe.edu.in" class="team-member">
-            <img src="https://via.placeholder.com/120" alt="Lethin" class="profile-img">
-            <h3>Lethin</h3>
-            <p>Web Developer</p>
-        </a>
+            switch(course) {
+                case 'cse':
+                    domains = `
+                        <h2>Related Domains for Computer Science and Engineering:</h2>
+                        <ul>
+                            <li>Web Development (Frontend, Backend, Full Stack)</li>
+                            <li>Machine Learning</li>
+                            <li>Data Science and Analytics</li>
+                            <li>Cloud Computing (AWS, Azure, GCP)</li>
+                            <li>Cybersecurity and Ethical Hacking</li>
+                            <li>Mobile Application Development (iOS, Android)</li>
+                            <li>Blockchain and Cryptography</li>
+                            <li>Quantum Computing</li>
+                            <li>Game Development</li>
+                            <li>Computer Vision</li>
+                            <li>Natural Language Processing (NLP)</li>
+                            <li>Big Data Technologies (Hadoop, Spark)</li>
+                            <li>Internet of Things (IoT)</li>
+                            <li>DevOps and Site Reliability Engineering (SRE)</li>
+                            <li>Software Testing and Quality Assurance</li>
+                            <li>Artificial Intelligence Ethics and Governance</li>
+                            <li>Augmented Reality (AR) and Virtual Reality (VR)</li>
+                            <li>Distributed Systems</li>
+                            <li>Bioinformatics</li>
+                            <li>Human-Computer Interaction (HCI)</li>
+                            <li>Computational Biology</li>
+                            <li>Operating Systems</li>
+                            <li>Database Management Systems (SQL, NoSQL)</li>
+                            <li>Edge Computing</li>
+                            <li>Embedded Software Development</li>
+                        </ul>`;
+                    break;
+                case 'ece':
+                    domains = `
+                        <h2>Related Domains for Electronics and Communication Engineering:</h2>
+                        <ul>
+                            <li>Embedded Systems</li>
+                            <li>VLSI Design and Verification</li>
+                            <li>Digital Signal Processing (DSP)</li>
+                            <li>Microelectronics</li>
+                            <li>Telecommunication Engineering (5G, 6G)</li>
+                            <li>Internet of Things (IoT)</li>
+                            <li>Wireless Sensor Networks (WSN)</li>
+                            <li>FPGA Development</li>
+                            <li>Radio Frequency (RF) and Microwave Engineering</li>
+                            <li>Robotics and Automation</li>
+                            <li>Photonics and Optoelectronics</li>
+                            <li>Biomedical Electronics</li>
+                            <li>Antenna Design</li>
+                            <li>Control Systems</li>
+                            <li>Satellite Communication</li>
+                            <li>Wearable Technology</li>
+                            <li>Nanotechnology in Electronics</li>
+                            <li>Quantum Electronics</li>
+                            <li>Network Security and Cryptography</li>
+                            <li>System on Chip (SoC) Design</li>
+                            <li>Smart Grid Technology</li>
+                        </ul>`;
+                    break;
+                case 'eee':
+                    domains = `
+                        <h2>Related Domains for Electrical and Electronics Engineering:</h2>
+                        <ul>
+                            <li>Power Systems and Smart Grids</li>
+                            <li>Power Electronics and Drives</li>
+                            <li>Electrical Machines and Transformers</li>
+                            <li>Renewable Energy Systems (Solar, Wind, Hydropower)</li>
+                            <li>High Voltage Engineering</li>
+                            <li>Control Systems and Automation</li>
+                            <li>Electric Vehicle Technology</li>
+                            <li>Robotics and Control</li>
+                            <li>Microgrids and Distributed Generation</li>
+                            <li>Energy Storage Systems (Batteries, Supercapacitors)</li>
+                            <li>Embedded Systems</li>
+                            <li>Electrical Safety Engineering</li>
+                            <li>Smart Metering and IoT in Power Systems</li>
+                            <li>Energy Management Systems</li>
+                            <li>HVDC and FACTS Devices</li>
+                            <li>Biomedical Instrumentation</li>
+                            <li>Machine Learning in Power Systems</li>
+                            <li>Photovoltaic Systems</li>
+                            <li>Power Quality and Harmonics</li>
+                            <li>Electromagnetic Field Theory</li>
+                            <li>Grid Integration of Renewable Energy</li>
+                        </ul>`;
+                    break;
+                case 'ai':
+                    domains = `
+                        <h2>Related Domains for Artificial Intelligence and Data Science:</h2>
+                        <ul>
+                            <li>Machine Learning (Supervised, Unsupervised, Reinforcement Learning)</li>
+                            <li>Deep Learning (CNNs, RNNs, GANs)</li>
+                            <li>Natural Language Processing (NLP)</li>
+                            <li>Computer Vision</li>
+                            <li>Robotic Process Automation (RPA)</li>
+                            <li>Big Data Analytics (Hadoop, Spark, Kafka)</li>
+                            <li>Explainable AI (XAI)</li>
+                            <li>AI for Healthcare</li>
+                            <li>Autonomous Vehicles and Drones</li>
+                            <li>Generative AI (Generative Adversarial Networks)</li>
+                            <li>AI Ethics and Fairness</li>
+                            <li>AI in Finance (Algorithmic Trading, Fraud Detection)</li>
+                            <li>Data Visualization (Power BI, Tableau, D3.js)</li>
+                            <li>Recommendation Systems</li>
+                            <li>AI for Edge Devices</li>
+                            <li>Data Engineering and Data Pipeline Design</li>
+                            <li>Predictive Analytics</li>
+                            <li>Time Series Analysis</li>
+                            <li>Speech Recognition and Synthesis</li>
+                            <li>AI in Gaming</li>
+                            <li>Computer Graphics and Simulation</li>
+                        </ul>`;
+                    break;
+                case 'mech':
+                    domains = `
+                        <h2>Related Domains for Mechanical Engineering:</h2>
+                        <ul>
+                            <li>Automotive Engineering</li>
+                            <li>Thermodynamics and Heat Transfer</li>
+                            <li>Robotics and Mechatronics</li>
+                            <li>3D Printing and Additive Manufacturing</li>
+                            <li>Aerospace Engineering</li>
+                            <li>Manufacturing Processes and Automation</li>
+                            <li>Fluid Mechanics and Dynamics</li>
+                            <li>Heat Transfer Engineering</li>
+                            <li>Structural Analysis and Design</li>
+                            <li>Material Science and Engineering</li>
+                            <li>Robotics and Automation</li>
+                            <li>Renewable Energy Systems</li>
+                            <li>Computer-Aided Design (CAD)</li>
+                            <li>Industrial Engineering</li>
+                            <li>Mechatronics and Control Engineering</li>
+                            <li>Thermal Systems Design</li>
+                            <li>Biomechanics</li>
+                            <li>Nanotechnology in Mechanical Engineering</li>
+                            <li>Engineering Management</li>
+                        </ul>`;
+                    break;
+                case 'civil':
+                    domains = `
+                        <h2>Related Domains for Civil Engineering:</h2>
+                        <ul>
+                            <li>Structural Engineering</li>
+                            <li>Geotechnical Engineering</li>
+                            <li>Transportation Engineering</li>
+                            <li>Environmental Engineering</li>
+                            <li>Water Resources Engineering</li>
+                            <li>Construction Management</li>
+                            <li>Urban Planning and Development</li>
+                            <li>Materials Engineering</li>
+                            <li>Coastal and Ocean Engineering</li>
+                            <li>Surveying and Geomatics</li>
+                            <li>Project Management in Civil Engineering</li>
+                            <li>Renewable Energy in Civil Engineering</li>
+                            <li>Smart City Infrastructure</li>
+                            <li>Earthquake Engineering</li>
+                            <li>Risk Assessment and Management</li>
+                            <li>Building Information Modeling (BIM)</li>
+                            <li>Infrastructure Resilience</li>
+                        </ul>`;
+                    break;
+                default:
+                    domains = `<h2>Please select a course to see related domains.</h2>`;
+            }
 
-        <!-- Team Member Card 2 -->
-        <a href="mailto:haleel.cs23@stellamaryscoe.edu.in" class="team-member">
-            <img src="https://via.placeholder.com/120" alt="Haleel" class="profile-img">
-            <h3>Haleel</h3>
-            <p>Team Leader - Network/Edge/AI Specialist</p>
-        </a>
-
-        <!-- Team Member Card 3 -->
-        <a href="mailto:anjai.cs23@stellamaryscoe.edu.in" class="team-member">
-            <img src="https://via.placeholder.com/120" alt="Anjai" class="profile-img">
-            <h3>Anjai</h3>
-            <p>Network Architect</p>
-        </a>
-
-        <!-- Team Member Card 4 -->
-        <a href="mailto:mogdumpuram.cs23@stellamaryscoe.edu.in" class="team-member">
-            <img src="https://via.placeholder.com/120" alt="Sriharshini" class="profile-img">
-            <h3>Sriharshini</h3>
-            <p>Cloud Computing Expert</p>
-        </a>
-
-        <!-- Team Member Card 5 -->
-        <a href="mailto:ajisha.cs23@stellamaryscoe.edu.in" class="team-member">
-            <img src="https://via.placeholder.com/120" alt="Ajisha" class="profile-img">
-            <h3>Ajisha</h3>
-            <p>Cloud Computing Expert</p>
-        </a>
-
-        <!-- Team Member Card 6 -->
-        <a href="mailto:shaniya.cs23@stellamaryscoe.edu.in" class="team-member">
-            <img src="https://via.placeholder.com/120" alt="Shaniya" class="profile-img">
-            <h3>Shaniya</h3>
-            <p>Cloud Computing Expert</p>
-        </a>
-    </section>
-
-    <!-- Contact Us Section -->
-    <section class="contact-section">
-        <h2>Contact Us</h2>
-        <a href="mailto:sudoer404@gmail.com">Send Us an Email</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Sudoer 404 - Stella Mary's College of Engineering</p>
-    </footer>
-
+            result.innerHTML = domains;
+        }
+    </script>
 </body>
 </html>
